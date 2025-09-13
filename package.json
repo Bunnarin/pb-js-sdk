@@ -31,7 +31,8 @@
     },
     "scripts": {
         "format": "npx prettier ./src ./tests --write",
-        "build": "rm -rf dist && rollup -c",
+        "clean": "if exist dist rmdir /s /q dist",
+        "build": "npm run clean && rollup -c",
         "dev": "rollup -c -w",
         "test": "vitest",
         "prepublishOnly": "npm run build"
@@ -39,9 +40,9 @@
     "devDependencies": {
         "@rollup/plugin-terser": "^0.4.3",
         "prettier": "3.2.4",
-        "rollup": "^4.0.0",
-        "rollup-plugin-ts": "^3.0.0",
+        "rollup": "^3.29.4",
+        "rollup-plugin-ts": "^3.0.2",
         "typescript": "^5.1.6",
-        "vitest": "^2.0.0"
+        "vitest": "^0.34.0"
     }
 }
